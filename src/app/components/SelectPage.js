@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 
 export default function SelectPage({ onSubmit, setCode }) {
   const moods = [
@@ -35,42 +36,48 @@ export default function SelectPage({ onSubmit, setCode }) {
     ${selected ? "bg-blue-500 border-blue-700 scale-105 shadow-md" : "bg-gray-700 hover:bg-gray-600"}`;
 
   return (
-    <div className="min-h-screen bg-black text-white flex flex-col items-center justify-center space-y-12">
-      <div>
-        <h2 className="text-2xl font-bold mb-4 text-center">選擇你的心情 🎧</h2>
-        <div className="grid grid-cols-4 gap-4">
-          {moods.map((m) => (
-            <div
-              key={m.code}
-              className={boxStyle(selectedMood === m.code)}
-              onClick={() => setSelectedMood(m.code)}
-            >
-              {m.label}
-            </div>
-          ))}
+    <div className="relative min-h-screen text-white" style={{ backgroundImage: 'url(/img/background%202.png)', backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
+      <div className="flex flex-col items-center justify-center h-screen space-y-12">
+        <div>
+          <div className="grid grid-cols-4 gap-4">
+            {moods.map((m) => (
+              <div
+                key={m.code}
+                className={boxStyle(selectedMood === m.code)}
+                onClick={() => setSelectedMood(m.code)}
+              >
+                {m.label}
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
 
-      <div>
-        <h2 className="text-2xl font-bold mb-4 text-center">選擇你正在做的事 🛠️</h2>
-        <div className="grid grid-cols-4 gap-4">
-          {places.map((p) => (
-            <div
-              key={p.code}
-              className={boxStyle(selectedPlace === p.code)}
-              onClick={() => setSelectedPlace(p.code)}
-            >
-              {p.label}
-            </div>
-          ))}
+        <div>
+          <div className="grid grid-cols-4 gap-4">
+            {places.map((p) => (
+              <div
+                key={p.code}
+                className={boxStyle(selectedPlace === p.code)}
+                onClick={() => setSelectedPlace(p.code)}
+              >
+                {p.label}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
       <button
         onClick={handleSubmit}
-        className="mt-8 px-6 py-3 bg-green-500 text-white rounded-full hover:bg-green-400 transition"
+        className="absolute bottom-24 right-0 cursor-pointer"
       >
-        送出配對歌單！
+        <Image
+          src="/img/btn_gogo.png"
+          alt="送出配對歌單"
+          width={240}
+          height={96}
+          className="hover:scale-105 transition-transform"
+        />
       </button>
     </div>
   );
