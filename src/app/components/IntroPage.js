@@ -8,7 +8,7 @@ export default function IntroPage({ onNext }) {
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'
       }}>
-        <button onClick={onNext} className="absolute bottom-24 right-0 cursor-pointer">
+        <button onClick={onNext} className="absolute bottom-40 right-0 cursor-pointer">
           <Image
             src="/img/btn_gogo.png"
             alt="開始選歌"

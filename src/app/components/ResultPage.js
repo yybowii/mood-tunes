@@ -19,17 +19,17 @@ export default function ResultPage({ code, onReset }) {
           href={youtubeUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="mb-6 w-full max-w-2xl aspect-video rounded-lg overflow-hidden shadow-lg"
+          className="mb-6 w-full max-w-2xl aspect-video rounded-lg overflow-hidden shadow-lg mt-10"
         >
           <iframe
             width="100%"
             height="100%"
-            src={`https://www.youtube.com/embed/${music.youtubeId}?autoplay=1&rel=0`}
+            src={`https://www.youtube.com/embed/${music.youtubeId}?autoplay=1&rel=0&mute=1`}
             title={music.song}
             frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
-            className="rounded-lg"
+            className="rounded-lg z-10"
           />
         </a>
 
@@ -38,13 +38,13 @@ export default function ResultPage({ code, onReset }) {
           alt={`Words for ${code}`}
           width={576}
           height={288}
-          className="mb-4"
+          className="mb-4 mt-5 z-1"
         />
       </div>
 
       <button
         onClick={onReset}
-        className="absolute bottom-24 right-0 cursor-pointer"
+        className="absolute bottom-40 right-0 cursor-pointer"
       >
         <Image
           src="/img/btn_reset.png"
